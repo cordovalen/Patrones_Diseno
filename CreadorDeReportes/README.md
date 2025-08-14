@@ -1,4 +1,4 @@
-# 1. CreadorReportes
+# 2. CreadorReportes
 
 Tipo de patrón de diseño: Creacional <br>
 Patrón elegido: Builder <br>
