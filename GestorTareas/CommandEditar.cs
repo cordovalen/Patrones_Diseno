@@ -1,0 +1,27 @@
+﻿namespace GestorTareas
+{
+    public class CommandEditar : ICommand
+    {
+        private Tarea _tarea;
+        private string _nuevaDescripcion;
+        private string _descripcionAnterior;
+
+        public CommandEditar(Tarea tarea, string nuevaDescripcion)
+        {
+            _tarea = tarea;
+            _nuevaDescripcion = nuevaDescripcion;
+            _descripcionAnterior = _tarea.Descripcion;
+        }
+
+        public void Deshacer()
+        {
+            _tarea.Descripcion = _descripcionAnterior;
+            Console.WriteLine($"[DESHACER] La edición de la tarea {_tarea.Id} ha sido revertida. Descripción: '{_tarea.Descripcion}'.");
+        }
+
+        public void Ejecutar()
+        {
+            _tarea.Editar(_nuevaDescripcion);
+        }
+    }
+}
