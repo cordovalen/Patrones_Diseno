@@ -1,7 +1,7 @@
-# 1. CreadorReportes
+# 2. CreadorReportes
 
 Tipo de patrón de diseño: Creacional <br>
 Patrón elegido: Builder <br>
 Diagrama de clases: <br>
 
-<img width="911" height="679" alt="NotificacionesClientes" src="https://github.com/user-attachments/assets/81365738-7551-41aa-ada4-eec31cdfead4" />
+<img width="1212" height="542" alt="CreadorReportes" src="https://github.com/user-attachments/assets/18e52644-3bb6-4680-8cb7-3a8c8e07f15c" />
