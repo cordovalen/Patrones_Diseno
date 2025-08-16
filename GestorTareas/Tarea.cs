@@ -4,13 +4,13 @@
     {
         public Guid Id { get; set; }
         public string Descripcion { get; set; }
-        public bool Completada { get; set; }
+        public int Completada { get; set; }
 
         public Tarea(Guid id, string descripcion)
         {
             Id = id;
             Descripcion = descripcion;
-            Completada = false;
+            Completada = EstadosTareaEnum.incompleta.GetHashCode();
         }
 
         public void Crear()
@@ -32,7 +32,7 @@
 
         public void Completar()
         {
-            Completada = true;
+            Completada = EstadosTareaEnum.completa.GetHashCode();
             Console.WriteLine($"[ACCIÓN] Tarea #{Id} completada.");
         }
     }

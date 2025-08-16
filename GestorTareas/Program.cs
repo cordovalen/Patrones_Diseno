@@ -11,6 +11,7 @@ Console.ResetColor();
 GestorTarea gestor = new();
 Tarea primeraTarea = new(Guid.NewGuid(), "Crear Historia de usuario");
 Tarea segundaTarea = new(Guid.NewGuid(), "Crear DOR");
+Tarea terceraTarea = new(Guid.NewGuid(), "Crear Historia técnica");
 
 // Sección 1: Ejecución de Acciones
 Console.ForegroundColor = ConsoleColor.White;
@@ -19,6 +20,9 @@ Console.ResetColor();
 
 ICommand crearPrimeraTarea = new CommandCrear(primeraTarea);
 gestor.EjecutarCommand(crearPrimeraTarea);
+
+ICommand crearTeceraTarea = new CommandCrear(terceraTarea);
+gestor.EjecutarCommand(crearTeceraTarea);
 
 ICommand editarPrimeraTarea = new CommandEditar(primeraTarea, "Crear HU");
 gestor.EjecutarCommand(editarPrimeraTarea);
@@ -29,14 +33,17 @@ gestor.EjecutarCommand(completarPrimeraTarea);
 ICommand crearSegundaTarea = new CommandCrear(segundaTarea);
 gestor.EjecutarCommand(crearSegundaTarea);
 
+ICommand eliminarTerceraTarea = new CommandEliminar(terceraTarea);
+gestor.EjecutarCommand(eliminarTerceraTarea);
+
+
 // Sección 2: Estado Actual de las Tareas
 Console.ForegroundColor = ConsoleColor.White;
 Console.WriteLine("\n--- ESTADO ACTUAL DE LAS TAREAS ---");
 Console.ResetColor();
 
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine($"- {primeraTarea.Descripcion} - ESTADO: {RevisarEstado(primeraTarea.Completada)})");
-Console.WriteLine($"- {segundaTarea.Descripcion} - ESTADO: {RevisarEstado(segundaTarea.Completada)})");
+RevisarEstado([primeraTarea, segundaTarea, terceraTarea]);
 Console.ResetColor();
 
 // Sección 3: Deshaciendo Acciones
@@ -53,11 +60,26 @@ Console.WriteLine("\n--- ESTADO FINAL DE LAS TAREAS ---");
 Console.ResetColor();
 
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine($"- {primeraTarea.Descripcion} - ESTADO: {RevisarEstado(primeraTarea.Completada)})");
-Console.WriteLine($"- {segundaTarea.Descripcion} - ESTADO: {RevisarEstado(segundaTarea.Completada)})");
+RevisarEstado([primeraTarea, segundaTarea, terceraTarea]);
 Console.ResetColor();
 
-static string RevisarEstado(bool estadoTarea)
+static void RevisarEstado(List<Tarea> tareas)
 {
-    return estadoTarea ? "'completada'" : "'incompleta'";
+    foreach (Tarea tarea in tareas)
+    {
+        string estado = string.Empty;
+        if (!Enum.IsDefined(typeof(EstadosTareaEnum), tarea.Completada))
+           estado = "Estado desconocido";
+
+        EstadosTareaEnum estadoTarea = (EstadosTareaEnum)tarea.Completada;
+        estado = estadoTarea switch
+        {
+            EstadosTareaEnum.completa => "Completada",
+            EstadosTareaEnum.incompleta => "Incompleta",
+            EstadosTareaEnum.eliminada => "Eliminada",
+            _ => "Estado desconocido"
+        };
+        Console.WriteLine($"- {tarea.Descripcion} - ESTADO: {estado})");
+    }
+    
 }

@@ -2,7 +2,7 @@
 {
     public class CommandCompletarTarea : ICommand
     {
-        private Tarea _tarea;
+        private readonly Tarea _tarea;
 
         public CommandCompletarTarea(Tarea tarea)
         {
@@ -11,7 +11,7 @@
 
         public void Deshacer()
         {
-            _tarea.Completada = false;
+            _tarea.Completada = EstadosTareaEnum.incompleta.GetHashCode();
             Console.WriteLine($"[DESHACER] La tarea {_tarea.Id} ha sido desmarcada como 'completada'.");
         }
 

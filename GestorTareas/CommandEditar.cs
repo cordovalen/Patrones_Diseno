@@ -2,9 +2,9 @@
 {
     public class CommandEditar : ICommand
     {
-        private Tarea _tarea;
-        private string _nuevaDescripcion;
-        private string _descripcionAnterior;
+        private readonly Tarea _tarea;
+        private readonly string _nuevaDescripcion;
+        private readonly string _descripcionAnterior;
 
         public CommandEditar(Tarea tarea, string nuevaDescripcion)
         {

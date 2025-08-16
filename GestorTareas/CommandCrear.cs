@@ -2,7 +2,7 @@
 {
     public class CommandCrear : ICommand
     {
-        private Tarea _tarea;
+        private readonly Tarea _tarea;
 
         public CommandCrear(Tarea tarea)
         {

@@ -2,7 +2,7 @@
 {
     public interface ICommand
     {
-        void Ejecutar();
-        void Deshacer();
+        public void Ejecutar();
+        public void Deshacer();
     }
 }

@@ -2,7 +2,7 @@
 {
     public class GestorTarea
     {
-        private List<ICommand> _historial = [];
+        private readonly List<ICommand> _historial = [];
 
         public void EjecutarCommand(ICommand command)
         {
