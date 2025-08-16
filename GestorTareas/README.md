@@ -1,4 +1,4 @@
-# 1. CreadorReportes
+# 3. GestorTareas
 
 Tipo de patrón de diseño: Comportamiento <br>
 Patrón elegido: Command <br>
