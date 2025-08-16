@@ -4,5 +4,4 @@ Tipo de patrón de diseño: Estructural <br>
 Patrón elegido: Composite <br>
 Diagrama de clases: <br>
 
-<img width="1493" height="489" alt="image" src="https://github.com/user-attachments/assets/5b6e8941-ab3d-4f46-bd55-596de011ca61" />
-
+<img width="423" height="314" alt="ExploradorArchivos" src="https://github.com/user-attachments/assets/cb2d2706-e592-4800-9c69-3c07baa758c3" />
