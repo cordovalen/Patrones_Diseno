@@ -1,0 +1,1 @@
+Buen día, profesor Daniel, el repositorio está divido en proyectos, cada uno tiene una sln individual por cada unos de los puntos del taller. Cada carpeta contiene un README donde puede observar el digrama de clases.
